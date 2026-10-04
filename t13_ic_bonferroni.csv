@@ -1,0 +1,13 @@
+"","variavel","contraste","diferenca","ep","li","ls","exclui_zero"
+"1","bill_length_mm","Adelie - Chinstrap",-10.0424,0.432264,-11.2894,-8.79542,TRUE
+"2","bill_depth_mm","Adelie - Chinstrap",-0.0742306,0.163688,-0.546444,0.397983,FALSE
+"3","flipper_length_mm","Adelie - Chinstrap",-5.86989,0.969945,-8.66803,-3.07175,TRUE
+"4","body_mass_g","Adelie - Chinstrap",-32.426,67.5117,-227.187,162.335,FALSE
+"5","bill_length_mm","Adelie - Gentoo",-8.71349,0.359505,-9.7506,-7.67637,TRUE
+"6","bill_depth_mm","Adelie - Gentoo",3.36424,0.136136,2.97151,3.75697,TRUE
+"7","flipper_length_mm","Adelie - Gentoo",-27.2333,0.806682,-29.5605,-24.9062,TRUE
+"8","body_mass_g","Adelie - Gentoo",-1375.35,56.148,-1537.33,-1213.38,TRUE
+"9","bill_length_mm","Chinstrap - Gentoo",1.32895,0.44728,0.0386115,2.61928,TRUE
+"10","bill_depth_mm","Chinstrap - Gentoo",3.43847,0.169374,2.94986,3.92709,TRUE
+"11","flipper_length_mm","Chinstrap - Gentoo",-21.3635,1.00364,-24.2588,-18.4681,TRUE
+"12","body_mass_g","Chinstrap - Gentoo",-1342.93,69.8569,-1544.45,-1141.4,TRUE

@@ -1,0 +1,5 @@
+"","tamanho_empirico","ic95_li","ic95_ls","R"
+"a_exato_sigma_comum",0.04785,0.0448918,0.0508082,20000
+"b_bartlett_sigma_comum",0.04785,0.0448918,0.0508082,20000
+"c_exato_sigma_heterog",0.0561,0.0529108,0.0592892,20000
+"d_exato_bootstrap_res",0.05145,0.0483883,0.0545117,20000

@@ -1,0 +1,5 @@
+"","bill_length_mm","bill_depth_mm","flipper_length_mm","body_mass_g"
+"bill_length_mm",7194.32,-1457.84,13962.4,616953
+"bill_depth_mm",-1457.84,903.967,-6759,-364137
+"flipper_length_mm",13962.4,-6759,52473.3,2.74145e+06
+"body_mass_g",616953,-364137,2.74145e+06,1.46864e+08

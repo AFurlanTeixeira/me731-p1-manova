@@ -1,0 +1,13 @@
+"","especie","variavel","n","media","dp","min","max"
+"1","Adelie","bill_length_mm",151,38.7914,2.6634,32.1,46
+"2","Adelie","bill_depth_mm",151,18.3464,1.21665,15.5,21.5
+"3","Adelie","flipper_length_mm",151,189.954,6.53946,172,210
+"4","Adelie","body_mass_g",151,3700.66,458.566,2850,4775
+"5","Chinstrap","bill_length_mm",68,48.8338,3.33926,40.9,58
+"6","Chinstrap","bill_depth_mm",68,18.4206,1.1354,16.4,20.8
+"7","Chinstrap","flipper_length_mm",68,195.824,7.13189,178,212
+"8","Chinstrap","body_mass_g",68,3733.09,384.335,2700,4800
+"9","Gentoo","bill_length_mm",123,47.5049,3.08186,40.9,59.6
+"10","Gentoo","bill_depth_mm",123,14.9821,0.98122,13.1,17.3
+"11","Gentoo","flipper_length_mm",123,217.187,6.48498,203,231
+"12","Gentoo","body_mass_g",123,5076.02,504.116,3950,6300

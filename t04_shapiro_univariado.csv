@@ -1,0 +1,13 @@
+"","especie","variavel","W","p_valor"
+"1","Adelie","bill_length_mm",0.993362,0.716601
+"2","Adelie","bill_depth_mm",0.984668,0.0924897
+"3","Adelie","flipper_length_mm",0.993392,0.720047
+"4","Adelie","body_mass_g",0.980708,0.032397
+"5","Chinstrap","bill_length_mm",0.97525,0.194093
+"6","Chinstrap","bill_depth_mm",0.972743,0.141785
+"7","Chinstrap","flipper_length_mm",0.988911,0.810645
+"8","Chinstrap","body_mass_g",0.984494,0.560508
+"9","Gentoo","bill_length_mm",0.972722,0.0134914
+"10","Gentoo","bill_depth_mm",0.976094,0.0276951
+"11","Gentoo","flipper_length_mm",0.962194,0.00161981
+"12","Gentoo","body_mass_g",0.985928,0.233616

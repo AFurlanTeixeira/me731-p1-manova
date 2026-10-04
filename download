@@ -1,0 +1,4 @@
+# Normaliza fim de linha do código, mas NUNCA altera os dados (o MD5 é conferido)
+* text=auto eol=lf
+*.csv -text
+*.png binary

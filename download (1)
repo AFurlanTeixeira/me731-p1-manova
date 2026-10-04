@@ -1,0 +1,12 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+.Rapp.history
+# SO
+.DS_Store
+Thumbs.db
+# rascunhos locais do relatório (o texto final é enviado à plataforma, não ao repo)
+rascunho/
+*.docx~
