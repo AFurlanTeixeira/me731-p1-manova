@@ -10,3 +10,6 @@ Thumbs.db
 # rascunhos locais do relatório (o texto final é enviado à plataforma, não ao repo)
 rascunho/
 *.docx~
+# saídas e dados baixados quando o arquivo único roda de dentro de entrega/
+entrega/results/
+entrega/penguins.csv
