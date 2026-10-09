@@ -83,7 +83,7 @@ Ponto central: o M de Box rejeita. Discuta se a rejeição vem de heterogeneidad
 **Precisa demonstrar:** que a conclusão não depende de uma suposição violada.
 
 - Permutação (f08), escala log, remoção do atípico (t18).
-- Monte Carlo (t19, R = 20.000, IC 95% de Monte Carlo): o teste exato tem tamanho 0,048 [0,045; 0,051] sob as suposições, 0,056 [0,053; 0,059] com as Σ_ℓ reais (levemente **liberal**) e 0,052 [0,048; 0,055] no bootstrap dos resíduos (forma e heterogeneidade reais). Conclusão: tamanho próximo do nominal. A heurística univariada ("maior n com maior variância → conservador") **não** se confirmou aqui. Vale discutir isso.
+- Monte Carlo (t19, R = 20.000, IC 95% de Monte Carlo): o teste exato tem tamanho 0,048 [0,045; 0,051] sob as suposições, 0,056 [0,053; 0,059] com as Σ_ℓ reais (levemente **liberal**) e 0,051 [0,048; 0,055] no bootstrap dos resíduos (forma e heterogeneidade reais). Conclusão: tamanho próximo do nominal. A heurística univariada ("maior n com maior variância → conservador") **não** se confirmou aqui. Vale discutir isso.
 - MANOVA espécie × sexo (t16): a interação é significativa. Mardia rejeita em 2 das 6 células (Chinstrap-fêmea e Adelie-macho, t17), e o M de Box ainda rejeita dentro de cada sexo. O sexo explica **parte** da não-normalidade e da heterogeneidade. Lembre também que as células, com n entre 34 e 73, têm menos poder.
 
 ## 10. Discussão crítica (≈ 1½ página). É exigida explicitamente pelo PDD.

@@ -101,6 +101,7 @@ pooled      16.9921
 Razão max/min dos desvios-padrão entre grupos:
    bill_length_mm     bill_depth_mm flipper_length_mm       body_mass_g 
             1.254             1.240             1.100             1.312 
+Box M bootstrap (R = 9999): C_obs = 76.79; quantil 95% bootstrap = 34.64 (qui2: 31.41); p = 0.00010
 
 ==============================================================================
 4. MANOVA A UM FATOR
@@ -136,6 +137,9 @@ Obs.: para Roy, o F reportado é um LIMITE SUPERIOR, logo o p-valor é um limite
 Obs.: p-valores < 1e-16 devem ser reportados como 'p < 0,001'; abaixo da
       precisão da máquina (ex.: 4.94e-324 = underflow) não têm significado.
 eta^2 multivariado = 1 - Lambda^(1/s) = 0.8629
+eta^2 univariado (b_ii / t_ii):
+   bill_length_mm     bill_depth_mm flipper_length_mm       body_mass_g 
+           0.7078            0.6798            0.7782            0.6697 
 Invariância: Lambda original = 0.0187854305; transformado = 0.0187854305
 
 ==============================================================================
@@ -205,7 +209,7 @@ sex           1 0.3571    145.8      4    324    < 2e-16 ***
 species:sex   2 0.8887      4.9      8    648 0.00000629 ***
 Residuals   327                                             
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Box M por sexo (p-valores):
   female     male 
 0.000141 0.000770 
@@ -227,31 +231,35 @@ b_bartlett_sigma_comum           0.0478  0.0449  0.0508 20000
 c_exato_sigma_heterog            0.0561  0.0529  0.0593 20000
 d_exato_bootstrap_res            0.0515  0.0484  0.0545 20000
 Nível nominal = 0.05
+Fatores de volume c_l = (|S_l|/|S_pooled|)^(1/p):
+   Adelie Chinstrap    Gentoo 
+   1.0885    0.9547    0.7872 
+                              tamanho_empirico ic95_li ic95_ls     R
+e_exato_volume_sem_orientacao           0.0480  0.0450  0.0510 20000
+f_exato_orientacao_sem_volume           0.0589  0.0556  0.0622 20000
 
 ==============================================================================
 9. AMBIENTE
 ==============================================================================
-R version 4.3.3 (2024-02-29)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 24.04.5 LTS
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26200)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+  LAPACK version 3.12.1
 
 locale:
- [1] LC_CTYPE=C.UTF-8    LC_NUMERIC=C        LC_TIME=C          
- [4] LC_COLLATE=C        LC_MONETARY=C       LC_MESSAGES=C      
- [7] LC_PAPER=C          LC_NAME=C           LC_ADDRESS=C       
-[10] LC_TELEPHONE=C      LC_MEASUREMENT=C    LC_IDENTIFICATION=C
+[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+[5] LC_TIME=Portuguese_Brazil.utf8    
 
 time zone: America/Sao_Paulo
-tzcode source: system (glibc)
+tzcode source: internal
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
-[1] compiler_4.3.3 tools_4.3.3   
+[1] compiler_4.6.1 tools_4.6.1   
 
 Execução concluída sem erros.
