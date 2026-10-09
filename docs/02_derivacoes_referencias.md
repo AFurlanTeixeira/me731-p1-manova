@@ -55,7 +55,7 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 
 **Esboço de C8.** Com Y = XA', B_Y = A B_X A' e W_Y = A W_X A'. Então |W_Y|/|B_Y+W_Y| = |A|²|W_X| / (|A|²|B_X+W_X|) = Λ*_X. Consequência prática: trocar g por kg ou mm por cm não altera nada (o script verifica). Já variáveis canônicas e ICs dependem da escala.
 
-> ⚠️ **Erro de impressão na 4ª ed. (p. 357):** Roy aparece como "maximum eigenvalue of W(B+W)⁻¹". O correto é o maior autovalor de **B**(B+W)⁻¹, que vale θ₁ = λ₁/(1+λ₁). A forma impressa não pode estar certa: os autovalores de W(B+W)⁻¹ são 1/(1+λᵢ), e o maior deles, 1/(1+λₛ), depende só do **menor** λ.  Atenção também: o R (`summary.manova`) reporta para Roy o próprio λ₁ = 15,02, e não θ₁ = 0,938. Deixe explícito no texto qual dos dois você usa.
+> ⚠️ **Erro de impressão na 4ª ed. (p. 357):** Roy aparece como "maximum eigenvalue of W(B+W)⁻¹". O correto é o maior autovalor de **B**(B+W)⁻¹, que vale θ₁ = λ₁/(1+λ₁). A forma impressa não pode estar certa: W(B+W)⁻¹ é semelhante a (I+W⁻¹B)⁻¹, cujos autovalores são 1/(1+λᵢ) para os p autovalores de W⁻¹B, inclusive os nulos. Com p > s, como aqui, o maior deles vale 1 em qualquer amostra.  Atenção também: o R (`summary.manova`) reporta para Roy o próprio λ₁ = 15,02, e não θ₁ = 0,938. Deixe explícito no texto qual dos dois você usa.
 
 ## D. Diagnóstico das suposições
 
