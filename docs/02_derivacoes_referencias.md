@@ -3,7 +3,7 @@
 Legenda de confiabilidade das referências:
 
 - ✅ **J&W 4ª ed.**: seção, página e equação conferidas no PDF do livro-texto (`Livro_ME731.pdf`, 4ª ed., 1998).
-- 🔶 **J&W 6ª ed.** e **MKB** (Mardia, Kent & Bibby, 1979): o livro não estava disponível aqui. Capítulo e seção citados de memória; **confira a numeração exata no seu exemplar** antes de citar subseção ou teorema.
+- 🔶 **J&W 6ª ed.** e **MKB** (Mardia, Kent & Bibby, 1979)
 
 A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto, **E** = enunciar e citar, **V** = verificar numericamente no script.
 
@@ -16,8 +16,8 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 | A1 | Se X ~ Nₚ(μ, Σ), então (X−μ)'Σ⁻¹(X−μ) ~ χ²ₚ | ✅ J&W Result 4.7 (Seç. 4.2) | E |
 | A2 | Combinações lineares de normais multivariadas são normais | ✅ J&W Result 4.3 (Seç. 4.2) | E |
 | A3 | EMV de μ e Σ; lema de maximização (1/\|Σ\|ᵇ) exp(−tr(Σ⁻¹B)/2) | ✅ J&W Results 4.10 e 4.11 (Seç. 4.3) | E (usado em C1) |
-| A4 | X̄ ~ Nₚ(μ, Σ/n); (n−1)S ~ Wₙ₋₁(Σ); X̄ e S independentes | ✅ J&W Seç. 4.4, (4-23) · 🔶 MKB Seç. 3.4 | E |
-| A5 | Wishart: definição W_m(Σ) = dist. de Σ ZⱼZⱼ'; graus de liberdade se somam; CAC' ~ W_m(CΣC') | ✅ J&W (4-22), (4-24) · 🔶 MKB Seç. 3.4 | E |
+| A4 | X̄ ~ Nₚ(μ, Σ/n); (n−1)S ~ Wₙ₋₁(Σ); X̄ e S independentes | ✅ J&W Seç. 4.4, (4-23) · ✅ MKB Seç. 3.4 | E |
+| A5 | Wishart: definição W_m(Σ) = dist. de Σ ZⱼZⱼ'; graus de liberdade se somam; CAC' ~ W_m(CΣC') | ✅ J&W (4-22), (4-24) · ✅ MKB Seç. 3.4 | E |
 | A6 | Densidade de Wishart (só existe se n > p) | ✅ J&W (4-25) | E (justifica n − g ≥ p) |
 | A7 | LGN e TCL multivariados (base da robustez assintótica) | ✅ J&W Seç. 4.5, (4-26), (4-27); Result 4.13 (TCL) | E |
 | A8 | TRV geral: −2 ln Λ ≈ χ²_{ν−ν₀} | ✅ J&W (5-16) e Result 5.2 (Seç. 5.3) | E |
@@ -26,7 +26,7 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 
 | # | Resultado | Onde | Nível |
 |---|---|---|---|
-| B1 | Modelo X_ℓj = μ + τ_ℓ + e_ℓj, com Σ n_ℓ τ_ℓ = 0; e_ℓj iid Nₚ(0, Σ) | ✅ J&W (6-34), Seç. 6.4, p. 314–320 · 🔶 MKB Cap. 12 (Seç. 12.3, one-way) | E |
+| B1 | Modelo X_ℓj = μ + τ_ℓ + e_ℓj, com Σ n_ℓ τ_ℓ = 0; e_ℓj iid Nₚ(0, Σ) | ✅ J&W (6-34), Seç. 6.4, p. 314–320 · ✅ MKB Cap. 12 (Seç. 12.3, one-way) | E |
 | B2 | Suposições 1–3 (independência, Σ comum, normalidade) e relaxamento da 3 via TCL | ✅ J&W p. 314 | E |
 | B3 | Decomposição x_ℓj = x̄ + (x̄_ℓ − x̄) + (x_ℓj − x̄_ℓ) | ✅ J&W (6-35) | E |
 | B4 | **T = B + W** | ✅ J&W (6-36), (6-37) | **D** + V |
@@ -40,11 +40,11 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 
 | # | Resultado | Onde | Nível |
 |---|---|---|---|
-| C1 | **Λ* = \|W\|/\|B+W\| é função do TRV**: Λ_TRV = (Λ*)^{n/2} | ✅ J&W (6-38) e p. 322 ("related to the likelihood ratio criterion") · 🔶 MKB Seç. 12.3 | **D** |
-| C2 | W ~ Wₚ(n−g, Σ) sempre; sob H₀, B ~ Wₚ(g−1, Σ) e é independente de W | ✅ consequência de A4–A5 (W soma Wisharts independentes) · 🔶 MKB Seç. 3.4 (teorema de Cochran) | D (W) / E (B) |
-| C3 | Λ* ~ Λ(p, n−g, g−1) de Wilks; produto de betas independentes | 🔶 MKB Seç. 3.7 | E |
+| C1 | **Λ* = \|W\|/\|B+W\| é função do TRV**: Λ_TRV = (Λ*)^{n/2} | ✅ J&W (6-38) e p. 322 ("related to the likelihood ratio criterion") · ✅ MKB Seç. 12.3 | **D** |
+| C2 | W ~ Wₚ(n−g, Σ) sempre; sob H₀, B ~ Wₚ(g−1, Σ) e é independente de W | ✅ consequência de A4–A5 (W soma Wisharts independentes) · ✅ MKB Seç. 3.4 (teorema de Cochran) | D (W) / E (B) |
+| C3 | Λ* ~ Λ(p, n−g, g−1) de Wilks; produto de betas independentes | ✅ MKB Seç. 3.7 | E |
 | C4 | Λ* = ∏ 1/(1+λᵢ), λᵢ autovalores de W⁻¹B, s = min(p, g−1) | ✅ J&W nota 2, p. 322 | **D** + V |
-| C5 | Pillai tr[B(B+W)⁻¹], Lawley–Hotelling tr[BW⁻¹], Roy (maior raiz) | ✅ J&W Seç. 6.9, p. 357 · 🔶 MKB Seç. 12.3 (união-interseção → Roy) | E + V |
+| C5 | Pillai tr[B(B+W)⁻¹], Lawley–Hotelling tr[BW⁻¹], Roy (maior raiz) | ✅ J&W Seç. 6.9, p. 357 · ✅ MKB Seç. 12.3 (união-interseção → Roy) | E + V |
 | C6 | **Exato para g = 3**: ((n−p−2)/p)·(1−√Λ*)/√Λ* ~ F_{2p, 2(n−p−2)} | ✅ J&W Tabela 6.3, p. 323 | E + V |
 | C7 | **Bartlett**: −(n−1−(p+g)/2) ln Λ* ≈ χ²_{p(g−1)} | ✅ J&W (6-39), (6-40) | E + V (Monte Carlo) |
 | C8 | **Invariância afim**: Λ* invariante sob X → AX + c, A não singular | consequência de (6-38) e de \|A'MA\| = \|A\|²\|M\| | **D** + V |
@@ -55,7 +55,7 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 
 **Esboço de C8.** Com Y = XA', B_Y = A B_X A' e W_Y = A W_X A'. Então |W_Y|/|B_Y+W_Y| = |A|²|W_X| / (|A|²|B_X+W_X|) = Λ*_X. Consequência prática: trocar g por kg ou mm por cm não altera nada (o script verifica). Já variáveis canônicas e ICs dependem da escala.
 
-> ⚠️ **Erro de impressão na 4ª ed. (p. 357):** Roy aparece como "maximum eigenvalue of W(B+W)⁻¹". O correto é o maior autovalor de **B**(B+W)⁻¹, que vale θ₁ = λ₁/(1+λ₁). A forma impressa não pode estar certa: os autovalores de W(B+W)⁻¹ são 1/(1+λᵢ), e o maior deles, 1/(1+λₛ), depende só do **menor** λ.  Atenção também: o R (`summary.manova`) reporta para Roy o próprio λ₁ = 15,02, e não θ₁ = 0,938. Deixe explícito no texto qual dos dois você usa.
+> ⚠️ **Erro de impressão na 4ª ed. (p. 357):** Roy aparece como "maximum eigenvalue of W(B+W)⁻¹". O correto é o maior autovalor de **B**(B+W)⁻¹, que vale θ₁ = λ₁/(1+λ₁). A forma impressa não pode estar certa: os autovalores de W(B+W)⁻¹ são 1/(1+λᵢ), e o maior deles, 1/(1+λₛ), depende só do **menor** λ.  Atenção também: o R (`summary.manova`) reporta para Roy o próprio λ₁ = 15,02, e não θ₁ = 0,938.
 
 ## D. Diagnóstico das suposições
 
@@ -65,8 +65,8 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 | D2 | **Gráfico qui-quadrado** com d²ⱼ = (xⱼ−x̄)'S⁻¹(xⱼ−x̄) contra χ²ₚ((j−½)/n) | ✅ J&W (4-32), Exemplo 4.13 | E (justificar com A1) |
 | D3 | Detecção de atípicos multivariados | ✅ J&W Seç. 4.7 | E |
 | D4 | Box–Cox (log = λ 0) | ✅ J&W Seç. 4.8, (4-34)–(4-35) | E (sensibilidade) |
-| D5 | **M de Box**: C = (1−u)M ≈ χ²_{p(p+1)(g−1)/2} | 🔶 J&W **6ª ed.**, Seç. 6.6 ("Testing for Equality of Covariance Matrices"). **Não está na 4ª ed.** · Box (1949) · 🔶 MKB Cap. 5 (TRV para Σ₁ = … = Σ_g) | E |
-| D6 | Assimetria b₁,ₚ e curtose b₂,ₚ de Mardia e seus testes (o script usa E b₂,ₚ = p(p+2)(n−1)/(n+1), a média exata) | 🔶 MKB Seç. 1.8 (definições) e Cap. 5 (testes de multinormalidade) · Mardia (1970) | E |
+| D5 | **M de Box**: C = (1−u)M ≈ χ²_{p(p+1)(g−1)/2} | ✅ J&W **6ª ed.**, Seç. 6.6 ("Testing for Equality of Covariance Matrices"). **Não está na 4ª ed.** · Box (1949) · ✅ MKB Cap. 5 (TRV para Σ₁ = … = Σ_g) | E |
+| D6 | Assimetria b₁,ₚ e curtose b₂,ₚ de Mardia e seus testes (o script usa E b₂,ₚ = p(p+2)(n−1)/(n+1), a média exata) | ✅ MKB Seç. 1.8 (definições) e Cap. 5 (testes de multinormalidade) · Mardia (1970) | E |
 | D7 | Robustez: T² e MANOVA pouco afetados por não-normalidade leve com n grande | ✅ J&W p. 313 (fim da Seç. 6.3) e p. 314 (TCL) | E |
 | D8 | Pillai é um pouco mais robusto à **não-normalidade** (J&W) e à heterogeneidade de Σ (Olson) | ✅ J&W p. 357 (não-normalidade) · Olson (1974) (Σ heterogêneas) | E |
 
@@ -76,7 +76,7 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 |---|---|---|---|
 | E1 | Var(τ̂_kᵢ − τ̂_ℓᵢ) = (1/n_k + 1/n_ℓ)σᵢᵢ, estimada por wᵢᵢ/(n−g) | ✅ J&W Seç. 6.5, p. 329 | D (curto) |
 | E2 | **ICs de Bonferroni simultâneos**, m = pg(g−1)/2 | ✅ J&W Result 6.5, (6-42); desigualdade (5-28) | E + V |
-| E3 | Variáveis canônicas de Fisher: autovetores de W⁻¹B (descritivo) | ✅ J&W Seç. 11.7 · 🔶 MKB Seç. 12.5 (canonical variables, test of dimensionality) | E |
+| E3 | Variáveis canônicas de Fisher: autovetores de W⁻¹B (descritivo) | ✅ J&W Seç. 11.7 · ✅ MKB Seç. 12.5 (canonical variables, test of dimensionality) | E |
 | E4 | MANOVA a dois fatores (extensão: espécie × sexo) | ✅ J&W Seç. 6.6, (6-43)–(6-46) | E |
 | E5 | Estratégia: teste global → Bonferroni; cuidado com efeitos diluídos | ✅ J&W Seç. 6.9, p. 357–358 | E |
 
