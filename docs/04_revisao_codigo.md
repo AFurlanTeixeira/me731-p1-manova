@@ -18,7 +18,7 @@ B e W (B + W = T); Wilks, Pillai, Lawley–Hotelling e Roy; F exato da Tabela 6.
 | 6 | Legenda da matriz de dispersão sobreposta ao título | figura | legenda numa camada própria |
 | 7 | CSVs com artefatos de ponto flutuante (8.61970999999999e-244) e números entre aspas | apresentação | `formatC` e aspas só em colunas de texto |
 | 8 | **Monte Carlo com R = 2.000 sustentava a conclusão "teste conservador" (0,042)**. Com R = 20.000 o tamanho é 0,056 [0,053; 0,059] | **conclusão errada** | R_SIM = 20.000, IC de Monte Carlo, texto reescrito |
-| 9 | Monte Carlo citada como evidência de robustez à não-normalidade, mas gerava dados normais | argumento inválido | novo cenário: bootstrap dos resíduos reais (0,052) |
+| 9 | Monte Carlo citada como evidência de robustez à não-normalidade, mas gerava dados normais | argumento inválido | novo cenário: bootstrap dos resíduos reais (0,051) |
 | 10 | Curtose de Mardia com média assintótica p(p+2), que vicia o z para n = 68 | precisão | média exata p(p+2)(n−1)/(n+1) |
 | 11 | Pillai atribuído a J&W como "robusto à heterogeneidade de Σ"; o livro diz "não-normalidade" | citação | corrigido (J&W para não-normalidade, Olson para Σ) |
 | 12 | Sensibilidade (log, sem atípico) sem p-valor | completude | p-valores exatos adicionados (t18) |

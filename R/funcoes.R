@@ -120,6 +120,31 @@ box_m <- function(X, grupo) {
 }
 
 # -----------------------------------------------------------------------------
+# M de Box com valor crítico por bootstrap dos resíduos agrupados
+# (Zhang & Boos, 1992, JASA 87, 425-429). Os resíduos de cada grupo
+# (x_lj - xbar_l) são reunidos num só conjunto e reamostrados com reposição
+# para todos os grupos. Isso impõe H0 (mesma distribuição de resíduos, logo
+# mesma covariância) mas preserva a curtose observada, que é justamente o que
+# distorce a referência qui-quadrado do M de Box.
+# p-valor = (1 + #{C* >= C_obs}) / (R + 1)
+# -----------------------------------------------------------------------------
+box_m_bootstrap <- function(X, grupo, R = 9999, semente = 731) {
+  X <- as.matrix(X)
+  grupo <- droplevels(as.factor(grupo))
+  n_l <- table(grupo)
+  C_obs <- box_m(X, grupo)$C
+  medias <- do.call(rbind, lapply(split.data.frame(X, grupo), colMeans))
+  E <- X - medias[as.character(grupo), ]
+  gr <- rep(factor(levels(grupo), levels = levels(grupo)), times = n_l)
+  set.seed(semente)
+  C_boot <- vapply(seq_len(R), function(r)
+    box_m(E[sample.int(nrow(E), nrow(E), replace = TRUE), , drop = FALSE], gr)$C, 0)
+  list(C_obs = C_obs, C_boot = C_boot, R = R, semente = semente,
+       quantil_95 = unname(quantile(C_boot, 0.95)),
+       p_valor = (1 + sum(C_boot >= C_obs)) / (R + 1))
+}
+
+# -----------------------------------------------------------------------------
 # Assimetria e curtose multivariadas de Mardia (1970)
 # [MKB] Seção 1.8 (medidas b_{1,p} e b_{2,p}) e Cap. 5 (testes de
 # multinormalidade). Usa S_n (divisor n), como na definição original.

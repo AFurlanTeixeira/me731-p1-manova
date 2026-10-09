@@ -55,7 +55,7 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 
 **Esboço de C8.** Com Y = XA', B_Y = A B_X A' e W_Y = A W_X A'. Então |W_Y|/|B_Y+W_Y| = |A|²|W_X| / (|A|²|B_X+W_X|) = Λ*_X. Consequência prática: trocar g por kg ou mm por cm não altera nada (o script verifica). Já variáveis canônicas e ICs dependem da escala.
 
-> ⚠️ **Erro de impressão na 4ª ed. (p. 357):** Roy aparece como "maximum eigenvalue of W(B+W)⁻¹". O correto é o maior autovalor de **B**(B+W)⁻¹, que vale θ₁ = λ₁/(1+λ₁). Atenção também: o R (`summary.manova`) reporta para Roy o próprio λ₁ = 15,02, e não θ₁ = 0,938. Deixe explícito no texto qual dos dois você usa.
+> ⚠️ **Erro de impressão na 4ª ed. (p. 357):** Roy aparece como "maximum eigenvalue of W(B+W)⁻¹". O correto é o maior autovalor de **B**(B+W)⁻¹, que vale θ₁ = λ₁/(1+λ₁). A forma impressa não pode estar certa: os autovalores de W(B+W)⁻¹ são 1/(1+λᵢ), e o maior deles, 1/(1+λₛ), depende só do **menor** λ.  Atenção também: o R (`summary.manova`) reporta para Roy o próprio λ₁ = 15,02, e não θ₁ = 0,938. Deixe explícito no texto qual dos dois você usa.
 
 ## D. Diagnóstico das suposições
 
@@ -91,7 +91,7 @@ A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto,
 ## Cuidados conceituais (erros comuns nessa técnica)
 
 1. **Normalidade é por grupo** (ou dos resíduos), não da amostra agregada. A amostra agregada de três espécies é uma mistura, e testá-la como se fosse uma única normal é um erro.
-2. **Rejeitar o M de Box não proíbe a MANOVA.** O M de Box é muito sensível à curtose e, com n grande, detecta diferenças pequenas. O que importa é o efeito da violação sobre o tamanho do teste. A regra univariada (o maior n_ℓ com a maior variância torna o teste conservador) é só uma tendência no caso multivariado. Aqui, apesar de Adelie ter n e |S| maiores, a Monte Carlo deu tamanho 0,056, levemente liberal. **Meça, não presuma.**
+2. **Rejeitar o M de Box não proíbe a MANOVA.** O M de Box é muito sensível à curtose e, com n grande, detecta diferenças pequenas. O que importa é o efeito da violação sobre o tamanho do teste. A regra univariada (o maior n_ℓ com a maior variância torna o teste conservador) é só uma tendência no caso multivariado. Aqui, apesar de Adelie ter n e |S| maiores, a Monte Carlo deu tamanho 0,056, levemente liberal. Os cenários (e) e (f) da Monte Carlo (t22) mostram por quê: só volumes diferentes dão 0,048, e só formas diferentes dão 0,059.
 3. **"p-valor minúsculo" não é tamanho de efeito.** Reporte η² multivariado e intervalos.
 4. **ANOVAs univariadas depois da MANOVA não "explicam" o efeito multivariado.** Elas ignoram as correlações. Use ICs simultâneos e variáveis canônicas.
 5. **A MANOVA não é "outra técnica" em relação à regressão multivariada.** É o mesmo modelo linear com regressoras indicadoras (J&W Seç. 7.7).

@@ -29,7 +29,7 @@ H₀: τ₁ = τ₂ = τ₃ = 0 no modelo **X**ₗⱼ = **μ** + **τ**ₗ + **e
 │   ├── raw/penguins.csv   # dados originais, sem nenhuma alteração (MD5 conferido no script)
 │   └── README.md          # origem, licença e dicionário de variáveis
 ├── results/
-│   ├── tables/            # t01–t19 (.csv), geradas pelo script
+│   ├── tables/            # t01–t22 (.csv), geradas pelo script
 │   ├── figures/           # f01–f08 (.png), geradas pelo script
 │   └── log_execucao.txt   # toda a saída do console + sessionInfo()
 ├── docs/
@@ -47,7 +47,7 @@ H₀: τ₁ = τ₂ = τ₃ = 0 no modelo **X**ₗⱼ = **μ** + **τ**ₗ + **e
 ```bash
 git clone https://github.com/AFurlanTeixeira/me731-p1-manova.git
 cd me731-p1-manova
-Rscript R/p1_manova.R          # ~40 s; regenera results/ inteiro
+Rscript R/p1_manova.R          # ~2,5 min; regenera results/ inteiro
 ```
 
 No RStudio: abra a pasta do repositório e dê *Source* em `R/p1_manova.R` (o script localiza a raiz sozinho).
@@ -69,9 +69,11 @@ Garantias de reprodutibilidade:
 | F exato (J&W Tabela 6.3, g = 3) | F(8, 672) = 528,9; p < 0,001 |
 | Bartlett (6-39) | χ²₈ = 1341,5; p < 0,001 |
 | Permutação (9.999 réplicas) | p = 0,0001 (mínimo possível com R = 9.999) |
-| η² multivariado = 1 − Λ^(1/s) | 0,863 |
+| η² multivariado = 1 − Λ^(1/s) | 0,863 (η² univariados de 0,670 a 0,778) |
 | M de Box | C = 76,8; gl = 20; p ≈ 1,4·10⁻⁸ → **Σ comum é rejeitada** |
-| Tamanho empírico do teste exato sob H₀ (Monte Carlo, R = 20.000) | 0,048 (normal, Σ comum) · 0,056 (Σₗ reais) · 0,052 (bootstrap dos resíduos); nominal 0,05 |
+| M de Box com referência bootstrap (9.999 réplicas) | maior C bootstrap = 58,3; p = 0,0001 → a rejeição não se explica só pela curtose |
+| Tamanho empírico do teste exato sob H₀ (Monte Carlo, R = 20.000) | 0,048 (normal, Σ comum) · 0,056 (Σₗ reais) · 0,051 (bootstrap dos resíduos); nominal 0,05 |
+| Mesmo estudo, separando volume e orientação | 0,048 (só volumes diferentes) · 0,059 (só formas diferentes) |
 
 A rejeição de H₀ é trivial: as espécies são visivelmente diferentes. O interesse do projeto está na metodologia, ou seja, nos diagnósticos, na violação de Σ comum, no confundimento com o sexo e no comportamento dos testes sob H₀. Veja `docs/03_discussao_critica.md`.
 

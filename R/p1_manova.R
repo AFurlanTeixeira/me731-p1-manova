@@ -42,6 +42,7 @@ if (!isTRUE(l10n_info()[["UTF-8"]])) {
 source("R/funcoes.R", encoding = "UTF-8")
 stopifnot(exists("salvar_tabela"), exists("sqpc_manova"))  # source() completo
 
+R_BOOT_BOX <- 9999   # réplicas do bootstrap do M de Box (Seção 3e)
 SEMENTE <- 731          # semente única para todo o processo aleatório
 ALFA    <- 0.05
 R_PERM  <- 9999         # réplicas do teste de permutação
@@ -211,6 +212,17 @@ razao_dp <- apply(sapply(levels(grupo), function(l) apply(X[grupo == l, ], 2, sd
                   1, function(s) max(s) / min(s))
 cat("Razão max/min dos desvios-padrão entre grupos:\n"); print(round(razao_dp, 3))
 
+# 3e. M de Box com referência por bootstrap (Zhang & Boos, 1992): separa
+#     heterogeneidade de curtose, porque a distribuição de referência é gerada
+#     com a curtose real dos resíduos e sob covariância comum.
+bmb <- box_m_bootstrap(X, grupo, R = R_BOOT_BOX, semente = SEMENTE)
+cat(sprintf("Box M bootstrap (R = %d): C_obs = %.2f; quantil 95%% bootstrap = %.2f (qui2: %.2f); p = %.5f\n",
+            bmb$R, bmb$C_obs, bmb$quantil_95, qchisq(0.95, bm$gl), bmb$p_valor))
+salvar_tabela(data.frame(C_obs = bmb$C_obs, quantil_95_bootstrap = bmb$quantil_95,
+                         quantil_95_qui2 = qchisq(0.95, bm$gl),
+                         max_C_bootstrap = max(bmb$C_boot), p_valor = bmb$p_valor,
+                         R = bmb$R), "t21_box_m_bootstrap.csv")
+
 # ---- 4. Ajuste da MANOVA ----------------------------------------------------
 secao("4. MANOVA A UM FATOR")
 s <- sqpc_manova(X, grupo)
@@ -255,6 +267,13 @@ salvar_tabela(data.frame(
                   "Bartlett qui2 (6-39)", "gl", "p_Bartlett", "eta2_mult"),
   valor = c(est$wilks, tw$exato, tw$bartlett, eta2_mult)),
   "t12_wilks_exato_bartlett.csv")
+
+# eta^2 univariado de cada resposta, b_ii / t_ii (ANOVA de cada variável),
+# como termo de comparação concreto para o eta^2 multivariado.
+eta2_uni <- diag(s$B) / diag(s$T)
+cat("eta^2 univariado (b_ii / t_ii):\n"); print(round(eta2_uni, 4))
+salvar_tabela(data.frame(eta2 = c(eta2_uni, multivariado = eta2_mult)),
+              "t20_eta2.csv")
 
 # Propriedade de invariância: Lambda não muda sob X -> XA + 1c' (A não
 # singular). Ex.: trocar gramas por quilogramas e milímetros por centímetros.
@@ -428,6 +447,30 @@ tab_mc <- data.frame(tamanho_empirico = tam, ic95_li = tam - 1.96 * ep_mc,
 print(round(tab_mc, 4))
 cat(sprintf("Nível nominal = %.2f\n", ALFA))  # sem tempo de execução: log determinístico
 salvar_tabela(tab_mc, "t19_monte_carlo_tamanho.csv")
+
+# Cenários que separam VOLUME e ORIENTAÇÃO da heterogeneidade de (c).
+# Rodam num laço próprio, com semente própria, para não alterar (a)-(d).
+#   (e) Sigma_l = c_l S_pooled, com |Sigma_l| = |S_l|: volumes observados,
+#       mesma forma e orientação (o caso coberto pela heurística univariada)
+#   (f) Sigma_l = S_l / k_l,   com |Sigma_l| = |S_pooled|: formas e
+#       orientações observadas, volumes iguais
+c_l <- exp((bm$log_det_S_l - bm$log_det_S_pooled) / p)
+cat("Fatores de volume c_l = (|S_l|/|S_pooled|)^(1/p):\n"); print(round(c_l, 4))
+Sl_vol_chol <- lapply(levels(grupo), function(l) chol(c_l[[l]] * Sp))
+Sl_ori_chol <- lapply(levels(grupo), function(l) chol(bm$S_l[[l]] / c_l[[l]]))
+names(Sl_vol_chol) <- names(Sl_ori_chol) <- levels(grupo)
+gera <- function(chols) do.call(rbind, lapply(levels(grupo), function(l)
+  matrix(rnorm(n_l[l] * p), n_l[l], p) %*% chols[[l]]))
+set.seed(SEMENTE + 1)
+sim_rej2 <- t(replicate(R_SIM, c(
+  e_exato_volume_sem_orientacao = rejeita(gera(Sl_vol_chol))$exato[["p_valor"]] < ALFA,
+  f_exato_orientacao_sem_volume = rejeita(gera(Sl_ori_chol))$exato[["p_valor"]] < ALFA)))
+tam2 <- colMeans(sim_rej2)
+ep2 <- sqrt(tam2 * (1 - tam2) / R_SIM)
+tab_mc2 <- data.frame(tamanho_empirico = tam2, ic95_li = tam2 - 1.96 * ep2,
+                      ic95_ls = tam2 + 1.96 * ep2, R = R_SIM)
+print(round(tab_mc2, 4))
+salvar_tabela(tab_mc2, "t22_monte_carlo_volume_orientacao.csv")
 
 # ---- 9. Registro do ambiente ------------------------------------------------
 secao("9. AMBIENTE")

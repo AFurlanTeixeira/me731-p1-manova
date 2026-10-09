@@ -8,7 +8,7 @@ Pontos para a seção de discussão, com os números que os sustentam. Organize 
 - **Usa a estrutura de correlação:** detecta diferenças em direções que nenhuma variável isolada mostra (J&W Exemplo 6.14). Aqui as correlações dentro do grupo vão de 0,31 a 0,72 (t03).
 - **Base teórica completa:** TRV, distribuição exata para g = 3, aproximação de Bartlett e quatro estatísticas que coincidem quando s = 1.
 - **Invariância afim:** Λ* não depende das unidades (verificado: g→kg e mm→cm dão Λ* idêntico).
-- **Robustez assintótica** à não-normalidade, via TCL (J&W p. 314). No bootstrap dos resíduos reais (não-normais e heterogêneos), o tamanho empírico foi 0,052 [0,048; 0,055].
+- **Robustez assintótica** à não-normalidade, via TCL (J&W p. 314). No bootstrap dos resíduos reais (não-normais e heterogêneos), o tamanho empírico foi 0,051 [0,048; 0,055].
 - Gera subprodutos interpretáveis: variáveis canônicas e ICs simultâneos.
 
 ## 2. Limitações e desvantagens gerais
@@ -25,14 +25,14 @@ Pontos para a seção de discussão, com os números que os sustentam. Organize 
 
 | Problema | Evidência | Consequência |
 |---|---|---|
-| Σ_ℓ heterogêneas | Box C = 76,8, p ≈ 1,4·10⁻⁸; log\|S\| de 16,0 a 17,3 (t07, t08) | Monte Carlo (R = 20.000): tamanho 0,056 [0,053; 0,059] com as Σ_ℓ reais, levemente liberal, apesar de a heurística univariada prever um teste conservador. Com p-valor de ordem 10⁻²⁸⁴ a conclusão não muda, mas em um efeito marginal faria diferença. |
+| Σ_ℓ heterogêneas | Box C = 76,8, p ≈ 1,4·10⁻⁸; log\|S\| de 16,0 a 17,3 (t07, t08). Com referência por bootstrap dos resíduos agrupados, que preserva a curtose, o maior C em 9.999 réplicas foi 58,3 e p = 0,0001 (t21). | Monte Carlo (R = 20.000): tamanho 0,056 [0,053; 0,059] com as Σ_ℓ reais, levemente liberal, apesar de a heurística univariada prever um teste conservador. Separando os componentes (t22): só volumes diferentes dão 0,048 [0,045; 0,051]; só formas e orientações diferentes, com volumes iguais, dão 0,059 [0,056; 0,062]. O desvio vem da forma, não do volume. Com p-valor de ordem 10⁻²⁸⁴ a conclusão não muda, mas em um efeito marginal faria diferença. |
 | Não-normalidade em Chinstrap e Gentoo | Mardia: assimetria p = 0,019 e 0,009; curtose Chinstrap p < 0,001 (t05) | Atenuada pelo TCL (n_ℓ ≥ 68). Permutação dá p = 0,0001. |
 | **Confundimento com sexo** | Interação espécie×sexo: Λ = 0,889, p < 0,001 (t16). Por célula espécie×sexo, Mardia rejeita em 2 das 6 (Chinstrap-fêmea e Adelie-macho, t17), e o M de Box ainda rejeita dentro de cada sexo (p < 0,001). | Cada espécie é uma **mistura** de dois sexos, o que explica **parte** da não-normalidade e da heterogeneidade (as células têm menos poder, com n de 34 a 73). Modelo mais adequado: dois fatores. O efeito de espécie depende do sexo. |
 | Atípico | obs294 (Chinstrap, bico de 58 mm), d² = 25,6 contra limite 18,5 | Removê-lo muda Λ de 0,01879 para 0,01867: irrelevante. |
 | Testes de normalidade múltiplos | 12 Shapiro-Wilk sem correção (t04) | Uso **descritivo**. Não decida a partir de um único p < 0,05. |
 | Medidas discretizadas | nadadeira em mm inteiros; massa em múltiplos de 25 g | Empates, que afetam Shapiro-Wilk e Q-Q. É um efeito pequeno. |
 | Independência | 3 anos de coleta (2007–2009), ninhos amostrados por ilha | Possível dependência (mesmo indivíduo ou ninho em anos diferentes, efeito de ilha). Confira `Individual ID` em `palmerpenguins::penguins_raw` antes de afirmar qualquer coisa. Island é parcialmente confundida com espécie (Gentoo só em Biscoe, Chinstrap só em Dream). |
-| H₀ obviamente falsa | Λ = 0,019, η² = 0,86 | A inferência é pouco informativa em si. Por isso a Monte Carlo sob H₀ é parte importante do projeto metodológico. |
+| H₀ obviamente falsa | Λ = 0,019, η² = 0,86, acima de todos os η² univariados (0,67 a 0,78; t20) | A inferência é pouco informativa em si. Por isso a Monte Carlo sob H₀ é parte importante do projeto metodológico. |
 | Unidades e escalas distintas | massa em g ≫ mm | Não afeta Λ (invariância). Afeta coeficientes canônicos brutos: use os padronizados. |
 
 ## 4. Extensões, alternativas e melhorias
