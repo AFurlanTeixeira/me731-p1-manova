@@ -25,6 +25,8 @@ H₀: τ₁ = τ₂ = τ₃ = 0 no modelo **X**ₗⱼ = **μ** + **τ**ₗ + **e
 ├── R/
 │   ├── p1_manova.R        # script principal: roda a análise de ponta a ponta
 │   └── funcoes.R          # funções implementadas à mão (B, W, Wilks, Box M, Mardia...)
+├── entrega/
+│   └── p1_manova_completo.R  # R/funcoes.R + R/p1_manova.R num só arquivo, para envio
 ├── data/
 │   ├── raw/penguins.csv   # dados originais, sem nenhuma alteração (MD5 conferido no script)
 │   └── README.md          # origem, licença e dicionário de variáveis
