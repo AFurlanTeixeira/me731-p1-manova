@@ -3,7 +3,7 @@
 Legenda de confiabilidade das referências:
 
 - ✅ **J&W 4ª ed.**: seção, página e equação conferidas no PDF do livro-texto (`Livro_ME731.pdf`, 4ª ed., 1998).
-- 🔶 **J&W 6ª ed.** e **MKB** (Mardia, Kent & Bibby, 1979)
+- ✅ **J&W 6ª ed.** e **MKB** (Mardia, Kent & Bibby, 1979)
 
 A coluna "Nível" sugere o que fazer com cada item: **D** = demonstrar no texto, **E** = enunciar e citar, **V** = verificar numericamente no script.
 
